@@ -8,7 +8,7 @@ const User = sequelize.define('user', {
     role: {type: DataTypes.STRING, defaultValue: "USER"},
 })
 
-const Event = sequelize.define('device', {
+const Event = sequelize.define('event', {
     title: {type: DataTypes.STRING, unique: true, allowNull: false},
     description: {type: DataTypes.STRING, unique: false, allowNull: true},
     label: {type: DataTypes.STRING, allowNull: false, defaultValue: "indigo"},
