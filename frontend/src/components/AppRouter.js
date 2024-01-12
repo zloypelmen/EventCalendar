@@ -10,7 +10,7 @@ const AppRouter = () => {
     console.log(user)
     return (
         <Routes>
-            {user.store &&
+            {user.isAuth &&
                 authRoutes.map(({ path, Component }) => (
                     <Route key={path} path={path} element={<Component />} />
                 ))}

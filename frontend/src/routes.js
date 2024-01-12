@@ -12,7 +12,7 @@ import Calendar from "./pages/Calendar";
 import Events from "./pages/Events";
 import About from "./pages/About";
 import Event from "./pages/Event";
-import Auth from "./pages/Auth";
+import Auth from "./pages/Auth.js";
 
 export  const authRoutes = [
     {
