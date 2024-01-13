@@ -25,7 +25,6 @@ export default class  UserStore{
         return this._isAuth
     }
     get isAdmin(){
-
         return this._isAdmin
     }
     get user(){

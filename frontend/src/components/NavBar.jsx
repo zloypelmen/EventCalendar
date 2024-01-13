@@ -16,6 +16,7 @@ const NavBar = () => {
         user.setIsAuth(false)
         navigate(LOGIN_ROUTE)
     }
+
     return (
         <header>
             <img src={logo} alt="calendar" />
@@ -23,37 +24,29 @@ const NavBar = () => {
                 EventCalendar
             </h1>
 
-            <Nav className="me-auto">
-                <Nav.Link>
-                    onClick={() => navigate(ABOUT_ROUTE)}
+            <Nav className="me-auto" >
+                <Nav.Link onClick={() => navigate(ABOUT_ROUTE)} >
                     Главная
                 </Nav.Link>
                 <Nav.Link>
-
                     Последние изменения
                 </Nav.Link>
+                <Nav.Link onClick={() => navigate(CALENDAR_ROUTE)}>
+                    Календарь
+                </Nav.Link>
+                <Nav.Link onClick={() => navigate(EVENTS_ROUTE)}>
+                    Мероприятия
+                </Nav.Link>
+
             </Nav>
 
             {user.isAuth ?
-
-
                 <Nav className="ml-auto" style={{color: 'white'}}>
-                    <Button
-                        variant={"outline-danger"}
-                        onClick={() => navigate(CALENDAR_ROUTE)}
-                        className="admin_button"
-                    >
-                        Календарь
-                    </Button>
-
-                    <Nav.Link>
-                        onClick={() => navigate(EVENTS_ROUTE)}
-                        Мероприятия
-                    </Nav.Link>
 
                     {user.isAdmin ?
                         <Button
-                            variant={"outline-dark"}
+                            variant={"outline-danger"}
+                            className={"admin_button"}
                             onClick={() => navigate(ADMIN_ROUTE)}
                         >
                             Админ панель
@@ -71,7 +64,6 @@ const NavBar = () => {
                 </Nav>
                 :
                 <Nav className="ml-auto" style={{color: 'white'}}>
-                    <Button className={"admin_button"} variant={"outline-secondary"} onClick={() => navigate(ABOUT_ROUTE)}>Главная</Button>
                     <Button variant={"outline-success"} onClick={() => navigate(LOGIN_ROUTE)}>Войти</Button>
                 </Nav>
             }

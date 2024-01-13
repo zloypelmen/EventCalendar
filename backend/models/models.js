@@ -16,10 +16,17 @@ const Event = sequelize.define('event', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
+const ChangeLog = sequelize.define('changeLog', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    title: { type: DataTypes.STRING, allowNull: true },
+    description: { type: DataTypes.TEXT, allowNull: true },
+});
+
 User.hasMany(Event)
 Event.belongsTo(User)
 
 module.exports = {
     User,
     Event,
+    ChangeLog,
 }

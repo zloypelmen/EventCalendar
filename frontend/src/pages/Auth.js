@@ -75,6 +75,7 @@ const Auth = () => {
                         }
                         <Button
                             variant={"outline-success"}
+                            className={"mt-3"}
                             onClick={click}
                         >
                             {isLogin ? 'Войти' : 'Регистрация'}
