@@ -3,11 +3,13 @@ import {Container, Form} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import {NavLink, useLocation} from "react-router-dom";
+import {BrowserRouter, NavLink, useLocation} from "react-router-dom";
 import {CALENDAR_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import {Context} from "../index";
 import {login, registration} from "../http/userApi";
 import { useNavigate } from "react-router-dom";
+import AppRouter from "../components/AppRouter";
+import {makeAutoObservable} from "mobx";
 
 const Auth = () => {
     const {user} = useContext(Context)
@@ -25,9 +27,16 @@ const Auth = () => {
             } else {
                 await registration(email, password);
             }
+            if (email === "admin@mail.ru"){
+                user.setIsAdmin(true)
+            }
             user.setUser(user)
             user.setIsAuth(true)
+
+            console.log(user)
+            console.log("1" + user.isAuth)
             navigate(CALENDAR_ROUTE)
+            console.log("2" + user.isAuth)
         } catch (e) {
             alert(e.response.data.message)
         }

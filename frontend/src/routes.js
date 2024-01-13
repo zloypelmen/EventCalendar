@@ -31,6 +31,7 @@ export  const authRoutes = [
         path: EVENT_ROUTE + '/:id',
         Component: Event
     },
+
 ]
 
 export const publicRoutes = [

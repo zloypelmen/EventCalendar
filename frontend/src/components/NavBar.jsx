@@ -1,11 +1,11 @@
 import logo from "../assets/calendar.svg"
 import "./NavBar.css"
-import {Nav, NavDropdown} from "react-bootstrap";
+import {Nav} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useContext} from "react";
 import {Context} from "../index";
 import {useNavigate} from "react-router-dom";
-import {ABOUT_ROUTE, ADMIN_ROUTE, LOGIN_ROUTE} from "../utils/consts";
+import {ABOUT_ROUTE, ADMIN_ROUTE, CALENDAR_ROUTE, EVENTS_ROUTE, LOGIN_ROUTE} from "../utils/consts";
 
 const NavBar = () => {
     const {user} = useContext(Context)
@@ -24,31 +24,43 @@ const NavBar = () => {
             </h1>
 
             <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                        Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                    </NavDropdown.Item>
-                </NavDropdown>
+                <Nav.Link>
+                    onClick={() => navigate(ABOUT_ROUTE)}
+                    Главная
+                </Nav.Link>
+                <Nav.Link>
+
+                    Последние изменения
+                </Nav.Link>
             </Nav>
 
             {user.isAuth ?
 
+
                 <Nav className="ml-auto" style={{color: 'white'}}>
                     <Button
                         variant={"outline-danger"}
-                        onClick={() => navigate(ADMIN_ROUTE)}
+                        onClick={() => navigate(CALENDAR_ROUTE)}
                         className="admin_button"
                     >
-                        Админ панель
+                        Календарь
                     </Button>
+
+                    <Nav.Link>
+                        onClick={() => navigate(EVENTS_ROUTE)}
+                        Мероприятия
+                    </Nav.Link>
+
+                    {user.isAdmin ?
+                        <Button
+                            variant={"outline-dark"}
+                            onClick={() => navigate(ADMIN_ROUTE)}
+                        >
+                            Админ панель
+                        </Button>
+                        :
+                        <div></div>
+                    }
                     <Button
                         variant={"outline-secondary"}
                         onClick={() => logOut()}
