@@ -42,6 +42,25 @@ class ChangeController {
             return next(badRequest('Внутренняя ошибка сервера'))
         }
     }
+
+    async remove(req, res, next) {
+        const changeId = req.params.id;
+
+        try {
+            const changeLog = await ChangeLog.findByPk(changeId);
+
+            if (!changeLog) {
+                return next(badRequest('Запись не найдено'))
+            }
+
+            await changeLog.destroy();
+
+            res.json({ message: 'Запись успешно удалено' });
+        } catch (error) {
+            console.error(error);
+            return next(badRequest('Внутренняя ошибка сервера'))
+        }
+    }
 }
 
 module.exports = new ChangeController()

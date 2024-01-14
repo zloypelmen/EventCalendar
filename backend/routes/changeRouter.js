@@ -6,6 +6,9 @@ router.post('/add', changeController.add);
 
 router.get('/get-all', changeController.getAll);
 
-router.get('/:id', changeController.getById);
+router.get('/get-by-id/:id', changeController.getById);
+
+router.delete('/del/:id', changeController.remove);
+
 
 module.exports = router;

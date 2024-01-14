@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import {useContext} from "react";
 import {Context} from "../index";
 import {useNavigate} from "react-router-dom";
-import {ABOUT_ROUTE, ADMIN_ROUTE, CALENDAR_ROUTE, EVENTS_ROUTE, LOGIN_ROUTE} from "../utils/consts";
+import {ABOUT_ROUTE, ADMIN_ROUTE, CALENDAR_ROUTE, EVENTS_ROUTE, LOGIN_ROUTE, NEW_CHANGE_ROUTE} from "../utils/consts";
 
 const NavBar = () => {
     const {user} = useContext(Context)
@@ -28,7 +28,7 @@ const NavBar = () => {
                 <Nav.Link onClick={() => navigate(ABOUT_ROUTE)} >
                     Главная
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link onClick={() => navigate(NEW_CHANGE_ROUTE)}>
                     Последние изменения
                 </Nav.Link>
                 <Nav.Link onClick={() => navigate(CALENDAR_ROUTE)}>

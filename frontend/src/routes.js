@@ -5,7 +5,8 @@ import {
     EVENT_ROUTE,
     EVENTS_ROUTE,
     LOGIN_ROUTE,
-    REGISTRATION_ROUTE
+    REGISTRATION_ROUTE,
+    NEW_CHANGE_ROUTE
 } from "./utils/consts";
 import Admin from "./pages/Admin";
 import Calendar from "./pages/Calendar";
@@ -13,6 +14,7 @@ import Events from "./pages/Events";
 import About from "./pages/About";
 import Event from "./pages/Event";
 import Auth from "./pages/Auth.js";
+import ChangeLog from "./pages/ChangeLog"
 
 export  const authRoutes = [
     {
@@ -30,6 +32,10 @@ export  const authRoutes = [
     {
         path: EVENT_ROUTE + '/:id',
         Component: Event
+    },
+    {
+        path: NEW_CHANGE_ROUTE,
+        Component: ChangeLog
     },
 
 ]
