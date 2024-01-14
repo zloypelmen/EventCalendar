@@ -34,6 +34,7 @@ const Auth = () => {
             user.setIsAuth(true)
 
             console.log(user)
+            console.log("10500" + user.isAdmin)
             console.log("1" + user.isAuth)
             navigate(CALENDAR_ROUTE)
             console.log("2" + user.isAuth)

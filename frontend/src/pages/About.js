@@ -1,10 +1,9 @@
 import React from 'react';
+import MainSlider from "../components/MainSlider";
 
 const About = () => {
     return (
-        <div>
-            About
-        </div>
+        <MainSlider/>
     );
 };
 

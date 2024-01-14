@@ -22,7 +22,7 @@ const CardChange = () => {
                                 {' '}{change.description}{' '}
                             </p>
                             <footer className="blockquote-footer">
-                                Будьте в центре событийс командой <cite title="Source Title">EventManager</cite>!
+                                Будьте в центре событий с командой <cite title="Source Title">EventManager</cite>!
                             </footer>
                         </blockquote>
                     </Card.Body>

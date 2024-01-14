@@ -6,14 +6,19 @@ import {useContext} from "react";
 import {Context} from "../index";
 import {useNavigate} from "react-router-dom";
 import {ABOUT_ROUTE, ADMIN_ROUTE, CALENDAR_ROUTE, EVENTS_ROUTE, LOGIN_ROUTE, NEW_CHANGE_ROUTE} from "../utils/consts";
+import {observer} from "mobx-react-lite";
+import MainSlider from "./MainSlider";
+import NavigationNav from "./NavigationNav";
 
-const NavBar = () => {
+const NavBar = observer(() => {
     const {user} = useContext(Context)
+    console.log(user.isAdmin)
     const navigate = useNavigate()
 
     const logOut = () => {
         user.setUser({})
         user.setIsAuth(false)
+        user.setIsAdmin(false)
         navigate(LOGIN_ROUTE)
     }
 
@@ -24,24 +29,11 @@ const NavBar = () => {
                 EventCalendar
             </h1>
 
-            <Nav className="me-auto" >
-                <Nav.Link onClick={() => navigate(ABOUT_ROUTE)} >
-                    Главная
-                </Nav.Link>
-                <Nav.Link onClick={() => navigate(NEW_CHANGE_ROUTE)}>
-                    Последние изменения
-                </Nav.Link>
-                <Nav.Link onClick={() => navigate(CALENDAR_ROUTE)}>
-                    Календарь
-                </Nav.Link>
-                <Nav.Link onClick={() => navigate(EVENTS_ROUTE)}>
-                    Мероприятия
-                </Nav.Link>
-
-            </Nav>
+            <NavigationNav/>
 
             {user.isAuth ?
-                <Nav className="ml-auto" style={{color: 'white'}}>
+
+                <Nav className="nav-buttons" style={{color: 'white'}}>
 
                     {user.isAdmin ?
                         <Button
@@ -57,18 +49,18 @@ const NavBar = () => {
                     <Button
                         variant={"outline-secondary"}
                         onClick={() => logOut()}
-                        className={"ml-2"}
+                        className={"ml-2 admin_button"}
                     >
                         Выйти
                     </Button>
                 </Nav>
                 :
                 <Nav className="ml-auto" style={{color: 'white'}}>
-                    <Button variant={"outline-success"} onClick={() => navigate(LOGIN_ROUTE)}>Войти</Button>
+                    <Button className={"admin_button"} variant={"outline-success"} onClick={() => navigate(LOGIN_ROUTE)}>Войти</Button>
                 </Nav>
             }
         </header>
     );
-};
+});
 
 export default NavBar;
