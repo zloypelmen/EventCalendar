@@ -4,6 +4,7 @@ import {Context} from "../index";
 import {ListGroup} from "react-bootstrap";
 import {type} from "@testing-library/user-event/dist/type";
 import {getAllChanges} from "../http/ChangesApi";
+import "./CardChange.css"
 
 const CardChange = () => {
     const {changes} = useContext(Context)
@@ -11,9 +12,9 @@ const CardChange = () => {
     const reversedChanges = changes.changes.slice().reverse();
 
     return (
-        <ListGroup>
+        <ListGroup className="listGroup">
             {reversedChanges.map(change =>
-                <Card>
+                <Card className="card">
                     <Card.Header>{change.title}</Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
