@@ -8,21 +8,19 @@ header {
     border-color: #e5e7eb;
 }
 header img{
-    margin-right: 2px;
-    width: 3rem;
-    height: 3rem;
+    width: 2vw;
+    height: 2vw;
     display: block;
     vertical-align: middle;
 }
 
 header h1 {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
-    margin-right: 2.5rem;
-    margin-left: 2vw;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: inherit;
+    color: #05073a;
+    margin: 0.9vh 2vw 0.9vh 1vw;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .ml-auto{
