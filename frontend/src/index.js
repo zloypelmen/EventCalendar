@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import UserStore from "./store/UserStore";
 import NewChangesStore from "./store/NewChangesStore";
+import ContextWrapper from "./context/ContextWrapper";
 
 export const Context = createContext(null)
 
@@ -12,6 +13,9 @@ root.render(
         user: new UserStore(),
         changes: new NewChangesStore()
     }}>
-        <App />
+        <ContextWrapper>
+            <App />
+        </ContextWrapper>
+
     </Context.Provider>
 );
