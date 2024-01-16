@@ -1,0 +1,67 @@
+.span_small_calendar{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: #4B5563;
+    cursor: pointer;
+}
+
+.header_small_calendar{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.p_small_calendar{
+    font-weight: 700;
+    color: #6B7280;
+    font-size: 1.3vw;
+}
+
+.mini_small_calendar{
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+
+}
+.wert{
+    background-color: white;
+    border: none;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    width: 100%;
+}
+
+.text1{
+    border-radius: 9999px;
+    color: #ffffff;
+    background-color: #3B82F6;
+}
+
+.text2 {
+    border-radius: 9999px;
+    font-weight: 700;
+    color: #2563EB;
+    background-color: #DBEAFE;
+}
+
+.mini_small_calendar span{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+
+    .span_small_calendar{
+        font-size: 10px;
+        align-items: center;
+        vertical-align: middle;
+    }
+
+    .p_small_calendar {
+        font-size: 15px;
+    }
+
+}

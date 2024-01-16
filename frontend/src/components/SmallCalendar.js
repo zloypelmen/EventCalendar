@@ -2,6 +2,9 @@ import dayjs from "dayjs";
 import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 import { getMonth } from "../utils/util";
+import "./SmallCalendar.css"
+import leftL from "../assets/arrow-left-1-svgrepo-com.svg";
+import rightL from "../assets/arrow-right-1-svgrepo-com.svg";
 
 export default function SmallCalendar() {
     const [currentMonthIdx, setCurrentMonthIdx] = useState(
@@ -35,39 +38,35 @@ export default function SmallCalendar() {
         const currDay = day.format(format);
         const slcDay = daySelected && daySelected.format(format);
         if (nowDay === currDay) {
-            return "bg-blue-500 rounded-full text-white";
+            return "text1";
         } else if (currDay === slcDay) {
-            return "bg-blue-100 rounded-full text-blue-600 font-bold";
+            return "text2";
         } else {
             return "";
         }
     }
     return (
-        <div className="mt-9">
-            <header className="flex justify-between">
-                <p className="text-gray-500 font-bold">
+        <div className="small_calendar">
+            <header className="header_small_calendar">
+                <p className="p_small_calendar">
                     {dayjs(new Date(dayjs().year(), currentMonthIdx)).format(
                         "MMMM YYYY"
                     )}
                 </p>
                 <div>
-                    <button onClick={handlePrevMonth}>
-            <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              chevron_left
-            </span>
+                    <button className = "arrow10" onClick={handlePrevMonth}>
+                        <img  src={leftL} alt="calendar"/>
                     </button>
-                    <button onClick={handleNextMonth}>
-            <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              chevron_right
-            </span>
+                    <button className = "arrow10" onClick={handleNextMonth}>
+                        <img  src={rightL} alt="calendar" />
                     </button>
                 </div>
             </header>
-            <div className="grid grid-cols-7 grid-rows-6">
+            <div className="mini_small_calendar">
                 {currentMonth[0].map((day, i) => (
-                    <span key={i} className="text-sm py-1 text-center">
+                    <span key={i}>
             {day.format("dd").charAt(0)}
-          </span>
+          </span >
                 ))}
                 {currentMonth.map((row, i) => (
                     <React.Fragment key={i}>
@@ -78,7 +77,7 @@ export default function SmallCalendar() {
                                     setSmallCalendarMonth(currentMonthIdx);
                                     setDaySelected(day);
                                 }}
-                                className={`py-1 w-full ${getDayClass(day)}`}
+                                className={`wert ${getDayClass(day)}`}
                             >
                                 <span className="text-sm">{day.format("D")}</span>
                             </button>

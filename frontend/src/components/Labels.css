@@ -1,0 +1,48 @@
+.top{
+    margin-top: 2.5rem;
+    color: #6B7280;
+}
+
+.label{
+    display: block;
+    margin-top: 0.75rem;
+    align-items: center;
+}
+
+.input{
+    border-radius: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+.candidate{
+    margin-left: 0.5rem;
+    color: #374151;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.text-red {
+    background-color: red;
+    opacity: 0.4;
+}
+.text-blue {
+    background-color: blue;
+    opacity: 0.4;
+}
+.text-indigo {
+    background-color: indigo;
+    opacity: 0.4;
+}
+.text-gray {
+    background-color: gray;
+    opacity: 0.4;
+}
+.text-green {
+    background-color: green;
+    opacity: 0.4;
+}
+.text-purple {
+    background-color: purple;
+    opacity: 0.4;
+}

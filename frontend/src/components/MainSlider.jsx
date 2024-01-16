@@ -12,24 +12,24 @@ const MainSlider = () => {
             <Carousel.Item className={" slider_container"}>
                 <img className={"slider_img"} src={main} alt="main"/>
                 <Carousel.Caption>
-                    <h3>Планируй</h3>
-                    <p>Смотри за графиком своего свободного времени вместе с EventManager!</p>
+                    <h3 className={"helf3"}>Планируй</h3>
+                    <p className={"parag"}>Смотри за графиком своего свободного времени вместе с EventManager!</p>
                 </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item className={"slider_container"}>
                 <img className={"slider_img"} src={create} alt="create"/>
                 <Carousel.Caption>
-                    <h3>Создавай</h3>
-                    <p>Добавляй новые или недавно запланированные мероприятия!</p>
+                    <h3 className={"helf3"}>Создавай</h3>
+                    <p className={"parag"}>Добавляй новые или недавно запланированные мероприятия!</p>
                 </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item className={"slider_container"}>
                 <img className={"slider_img"} src={refactor} alt="refactor"/>
                 <Carousel.Caption>
-                    <h3>Редактируй</h3>
-                    <p>
+                    <h3 className={"helf3"}>Редактируй</h3>
+                    <p className={"parag"}>
                         Редактируй свои события, чтобы всегда всё держать под контролем!
                     </p>
                 </Carousel.Caption>

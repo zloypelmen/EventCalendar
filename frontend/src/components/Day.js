@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
+import "./Day.css"
 
 export default function Day({ day, rowIdx }) {
     const [dayEvents, setDayEvents] = useState([]);
@@ -21,25 +22,25 @@ export default function Day({ day, rowIdx }) {
 
     function getCurrentDayClass() {
         return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
-            ? "bg-blue-600 text-white rounded-full w-7"
+            ? "get_current_day"
             : "";
     }
     return (
-        <div className="border border-gray-200 flex flex-col">
-            <header className="flex flex-col items-center">
+        <div className="day">
+            <header>
                 {rowIdx === 0 && (
-                    <p className="text-sm mt-1">
+                    <p className="row_p">
                         {day.format("ddd").toUpperCase()}
                     </p>
                 )}
                 <p
-                    className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}
+                    className={`s_row_p  ${getCurrentDayClass()}`}
                 >
                     {day.format("DD")}
                 </p>
             </header>
             <div
-                className="flex-1 cursor-pointer overflow-hidden"
+                className="street"
                 style={{ maxHeight: "200px"}}
                 onMouseEnter={(e) => {
                     e.currentTarget.style.overflowY = "auto";
@@ -56,7 +57,7 @@ export default function Day({ day, rowIdx }) {
                     <div
                         key={idx}
                         onClick={() => setSelectedEvent(evt)}
-                        className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
+                        className={`bg-${evt.label} day_event`}
                     >
                         {evt.title}
                     </div>

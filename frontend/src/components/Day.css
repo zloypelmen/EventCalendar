@@ -1,0 +1,86 @@
+.get_current_day{
+    border-radius: 9999px;
+    color: #ffffff;
+    background-color: #2563EB;
+    font-weight: 600;
+    width: 1.75rem;
+}
+
+.day{
+    display: flex;
+    flex-direction: column;
+    border-width: 1px;
+    border-color: #E5E7EB;
+    font-weight: 200;
+
+    box-sizing: border-box;
+    border-style: solid;
+}
+
+.day header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row_p{
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.s_row_p{
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+}
+
+.street{
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.day_event{
+    padding: 0.25rem;
+    margin-bottom: 0.25rem;
+    margin-right: 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #ffffff;
+    opacity: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 200;
+
+}
+
+.bg-red {
+    background-color: red;
+    opacity: 0.4;
+}
+.bg-blue {
+    background-color: blue;
+    opacity: 0.4;
+}
+.bg-indigo {
+    background-color: indigo;
+    opacity: 0.4;
+}
+.bg-gray {
+    background-color: gray;
+    opacity: 0.4;
+}
+.bg-green {
+    background-color: green;
+    opacity: 0.4;
+}
+.bg-purple {
+    background-color: purple;
+    opacity: 0.4;
+}

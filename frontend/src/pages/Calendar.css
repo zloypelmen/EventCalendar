@@ -1,0 +1,14 @@
+.Calendar {
+    text-align: center;
+}
+
+.calendar_class{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.calendar_header{
+    display: flex;
+}
+

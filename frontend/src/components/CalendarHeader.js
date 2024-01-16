@@ -1,7 +1,9 @@
 import dayjs from "dayjs";
 import React, { useContext } from "react";
-import logo from "../assets/calendar.svg";
 import GlobalContext from "../context/GlobalContext";
+import leftL from "../assets/arrow-left-1-svgrepo-com.svg"
+import rightL from "../assets/arrow-right-1-svgrepo-com.svg"
+import "./CalendarHeader.css"
 
 export default function CalendarHeader() {
     const { monthIndex, setMonthIndex } = useContext(GlobalContext);
@@ -11,6 +13,7 @@ export default function CalendarHeader() {
     function handleNextMonth() {
         setMonthIndex(monthIndex + 1);
     }
+
     function handleReset() {
         setMonthIndex(
             monthIndex === dayjs().month()
@@ -19,28 +22,20 @@ export default function CalendarHeader() {
         );
     }
     return (
-        <header className="px-4 py-2 flex items-center">
-            <img src={logo} alt="calendar" className="mr-2 w-12 h-12" />
-            <h1 className="mr-10 text-xl text-gray-500 fond-bold">
-                EventCalendar
-            </h1>
+        <header className="calendar_header">
             <button
                 onClick={handleReset}
-                className="border rounded py-2 px-4 mr-5"
+                className="button_calendar_header"
             >
-                Today
+                Сегодня
             </button>
-            <button onClick={handlePrevMonth}>
-        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          chevron_left
-        </span>
+            <button className = "arrow10" onClick={handlePrevMonth}>
+                <img  src={leftL} alt="calendar"/>
             </button>
-            <button onClick={handleNextMonth}>
-        <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          chevron_right
-        </span>
+            <button className = "arrow10" onClick={handleNextMonth}>
+                <img  src={rightL} alt="calendar" />
             </button>
-            <h2 className="ml-4 text-xl text-gray-500 font-bold">
+            <h2 className="h2_span_button_calendar_header">
                 {dayjs(new Date(dayjs().year(), monthIndex)).format(
                     "MMMM YYYY"
                 )}

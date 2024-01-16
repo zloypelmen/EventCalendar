@@ -15,10 +15,10 @@ const CardChange = () => {
         <ListGroup className="listGroup">
             {reversedChanges.map(change =>
                 <Card className="card">
-                    <Card.Header>{change.title}</Card.Header>
+                    <Card.Header className = {"title"}>{change.title}</Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
-                            <p>
+                            <p className = {"description"}>
                                 {' '}{change.description}{' '}
                             </p>
                             <footer className="blockquote-footer">

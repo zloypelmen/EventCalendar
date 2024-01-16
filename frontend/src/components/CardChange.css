@@ -7,3 +7,29 @@
 .card{
     margin-top: 0.5vh;
 }
+
+.description{
+    font-size: 0.8vw;
+}
+
+.title{
+    font-size: 1vw;
+}
+
+.blockquote-footer{
+    font-size: 0.7vw;
+}
+
+@media (max-width: 1000px) {
+
+    .description{
+        font-size: 9px;
+    }
+    .title{
+        font-size: 10px;
+    }
+
+    .blockquote-footer{
+        font-size: 7px;
+    }
+}

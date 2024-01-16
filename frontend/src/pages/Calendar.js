@@ -6,6 +6,7 @@ import Sidebar from "../components/SideBar";
 import Month from "../components/Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "../components/EventModal";
+import "./Calendar.css"
 
 const Calendar = () => {
     const [currenMonth, setCurrentMonth] = useState(getMonth());
@@ -19,9 +20,9 @@ const Calendar = () => {
         <React.Fragment>
             {showEventModal && <EventModal />}
 
-            <div className="h-screen flex flex-col">
+            <div className="calendar_class">
                 <CalendarHeader />
-                <div className="flex flex-1">
+                <div className="calendar_header">
                     <Sidebar />
                     <Month month={currenMonth} />
                 </div>

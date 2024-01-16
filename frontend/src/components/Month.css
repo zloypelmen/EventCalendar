@@ -1,0 +1,11 @@
+.month{
+    display: grid;
+    height: 100vh;
+    flex: 1 1 auto;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e5e7eb;
+}

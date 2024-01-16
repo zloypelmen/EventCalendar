@@ -23,9 +23,9 @@ const NavBar = observer(() => {
     }
 
     return (
-        <header>
+        <header className={"header_navbar"}>
             <img src={logo} alt="calendar" />
-            <h1>
+            <h1 className={"curic"}>
                 EventCalendar
             </h1>
 

@@ -1,4 +1,4 @@
-header {
+.header_navbar {
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
@@ -14,7 +14,8 @@ header img{
     vertical-align: middle;
 }
 
-header h1 {
+
+.curic {
     color: #05073a;
     margin: 0.9vh 2vw 0.9vh 1vw;
     font-size: 1vw;
@@ -55,7 +56,7 @@ header h1 {
         --bs-btn-font-size: 10px;
     }
 
-    header h1 {
+    .curic {
         margin: 10px 20px 10px 10px;
         font-size: 10px;
     }

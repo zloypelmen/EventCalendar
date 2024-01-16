@@ -1,9 +1,9 @@
-h3{
+.helf3{
     color: #05073a;
     font-size: 3vw;
 }
 
-p {
+.parag {
     color: #05073a;
     font-size: 1vw;
 }
@@ -24,11 +24,11 @@ p {
 
 @media (max-width: 1000px) {
 
-    h3 {
+    .helf3 {
         font-size: 30px;
     }
 
-    p {
+    .parag {
         font-size: 10px;
     }
 }
