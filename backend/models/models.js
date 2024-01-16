@@ -12,7 +12,7 @@ const Event = sequelize.define('event', {
     title: {type: DataTypes.STRING, unique: true, allowNull: false},
     description: {type: DataTypes.STRING, unique: false, allowNull: true},
     label: {type: DataTypes.STRING, allowNull: false, defaultValue: "indigo"},
-    day: {type: DataTypes.INTEGER, defaultValue: 0},
+    day: {type: DataTypes.BIGINT, defaultValue: 0},
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 

@@ -1,9 +1,7 @@
 import Card from 'react-bootstrap/Card';
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Context} from "../index";
 import {ListGroup} from "react-bootstrap";
-import {type} from "@testing-library/user-event/dist/type";
-import {getAllChanges} from "../http/ChangesApi";
 import "./CardChange.css"
 
 const CardChange = () => {

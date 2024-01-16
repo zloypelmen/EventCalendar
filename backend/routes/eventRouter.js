@@ -1,9 +1,7 @@
 const Router = require('express')
 const router = new Router()
-const eventController = require('../controllers/eventController')
+const calendarController = require('../controllers/CalendarController')
 
-router.post('/:userId',eventController.createEventByUserId)
-router.get('/:userId',eventController.getAllEventsByUserId)
-router.delete('/:userId',eventController.deleteAllEventsByUserId)
+router.get('/get-all',calendarController.getAll)
 
 module.exports = router

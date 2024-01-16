@@ -1,5 +1,4 @@
 import {$authHost, $host} from "./index";
-import data from "bootstrap/js/src/dom/data";
 
 export const addNewChange = async (title, description) => {
     try {

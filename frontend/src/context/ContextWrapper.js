@@ -1,6 +1,7 @@
 import React, {useEffect, useMemo, useReducer, useState,} from "react";
 import GlobalContext from "./GlobalContext";
 import dayjs from "dayjs";
+import * as CalendarApi from "../http/CalendarApi";
 
 function savedEventsReducer(state, { type, payload }) {
     switch (type) {
@@ -17,10 +18,29 @@ function savedEventsReducer(state, { type, payload }) {
     }
 }
 
-function initEvents() {
-    const storageEvents = localStorage.getItem("savedEvents");
-    return storageEvents ? JSON.parse(storageEvents) : [];
+function fetchDataAndStoreInLocalStorage(id) {
+    CalendarApi.getAllCalendar.then(data => {
+            const item = data.filter(item => item.userId === id);
+            if (item) {
+                localStorage.setItem(`savedEvents`, JSON.stringify(item));
+            } else {
+                console.log(`No item found with id: ${id}`);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
+
+function initEvents() {
+    return fetchDataAndStoreInLocalStorage(6);
+}
+
+// function initEvents() {
+//     const storageEvents = localStorage.getItem("savedEvents");
+//     const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
+//     return parsedEvents;
+// }
 
 export default function ContextWrapper(props) {
     const [monthIndex, setMonthIndex] = useState(dayjs().month());

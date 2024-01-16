@@ -12,6 +12,7 @@ const generateJwt = (id, email, role) => {
 }
 
 class UserController {
+
     async registration(req, res, next) {
         const {email, password, role} = req.body
         if (!email || !password) {
