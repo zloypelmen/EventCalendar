@@ -26,6 +26,25 @@ class CalendarController {
             return next(badRequest('Внутренняя ошибка сервера'))
         }
     }
+
+    async remove(req, res, next) {
+        const id = req.params.id;
+
+        try {
+            const event = await Event.findByPk(id);
+
+            if (!event) {
+                return next(badRequest('Запись не найдено'))
+            }
+
+            await event.destroy();
+
+            res.json({ message: 'Запись успешно удалено' });
+        } catch (error) {
+            console.error(error);
+            return next(badRequest('Внутренняя ошибка сервера'))
+        }
+    }
 }
 
 module.exports = new CalendarController()

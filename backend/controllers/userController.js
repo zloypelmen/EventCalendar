@@ -13,6 +13,23 @@ const generateJwt = (id, email, role) => {
 
 class UserController {
 
+    async getUserId(req, res, next){
+        const email = req.params.email;
+
+        if (!email ) {
+            return next(ApiError.badRequest('Некорректный email или password'));
+        }
+
+        const user = await User.findOne({ where: { email: email } });
+
+        if (!user) {
+            return next(ApiError.internal('Пользователь не найден'))
+        }
+
+        const userId = user.id;
+        return res.json({userId});
+    };
+
     async registration(req, res, next) {
         const {email, password, role} = req.body
         if (!email || !password) {

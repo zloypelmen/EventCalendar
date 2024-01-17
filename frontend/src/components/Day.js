@@ -57,7 +57,7 @@ export default function Day({ day, rowIdx }) {
                     <div
                         key={idx}
                         onClick={() => setSelectedEvent(evt)}
-                        className={`bg-${evt.label} day_event`}
+                        className={`bg-${evt.label} day_event1`}
                     >
                         {evt.title}
                     </div>
