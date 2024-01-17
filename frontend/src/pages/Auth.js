@@ -6,10 +6,9 @@ import Row from "react-bootstrap/Row";
 import {BrowserRouter, NavLink, useLocation} from "react-router-dom";
 import {CALENDAR_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import {Context} from "../index";
-import {login, registration} from "../http/userApi";
+import {getUserId, login, registration} from "../http/userApi";
 import { useNavigate } from "react-router-dom";
-import AppRouter from "../components/AppRouter";
-import {makeAutoObservable} from "mobx";
+import * as userApi from "../http/userApi";
 
 const Auth = () => {
     const {user} = useContext(Context)
@@ -35,6 +34,7 @@ const Auth = () => {
             console.log(data)
 
             user.setToken(data)
+            localStorage.setItem('userId', await userApi.getUserId(email))
             user.setIsAuth(true)
 
             navigate(CALENDAR_ROUTE)

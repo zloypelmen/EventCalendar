@@ -1,26 +1,9 @@
 import {$authHost, $host} from "./index"
 import { jwtDecode } from "jwt-decode"
 
-export const getUserId = async () => {
-    const userEmail = getUserEmail();
-    const {data} = await $authHost.get(`api/user/get-id/${userEmail}`)
+export const getUserId = async (email) => {
+    const {data} = await $authHost.get(`api/user/get-id/${email}`)
     return data.userId
-}
-
-export const getUserEmail = async () =>{
-    try {
-        const token = localStorage.getItem('token');
-
-        const {decodedToken} = jwtDecode(token);
-
-        const userEmail = decodedToken.email;
-
-        console.log(userEmail);
-    }catch (error) {
-        console.error(error);
-        throw error;
-    }
-
 }
 
 export const registration = async (email, password) => {
