@@ -21,23 +21,23 @@ const Auth = () => {
 
     const click = async () => {
         try {
+            let data;
 
             if (isLogin) {
-                await login(email, password);
+                data = await login(email, password);
             } else {
-                await registration(email, password);
+                data = await registration(email, password);
             }
             if (email === "admin@mail.ru"){
                 user.setIsAdmin(true)
             }
             user.setUser(user)
+            console.log(data)
+
+            user.setToken(data)
             user.setIsAuth(true)
 
-            console.log(user)
-            console.log("10500" + user.isAdmin)
-            console.log("1" + user.isAuth)
             navigate(CALENDAR_ROUTE)
-            console.log("2" + user.isAuth)
         } catch (e) {
             alert(e.response.data.message)
         }

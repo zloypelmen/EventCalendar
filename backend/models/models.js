@@ -9,7 +9,7 @@ const User = sequelize.define('user', {
 })
 
 const Event = sequelize.define('event', {
-    title: {type: DataTypes.STRING, unique: true, allowNull: false},
+    title: {type: DataTypes.STRING, unique: false, allowNull: false},
     description: {type: DataTypes.STRING, unique: false, allowNull: true},
     label: {type: DataTypes.STRING, allowNull: false, defaultValue: "indigo"},
     day: {type: DataTypes.BIGINT, defaultValue: 0},

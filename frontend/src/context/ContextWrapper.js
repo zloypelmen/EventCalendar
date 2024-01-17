@@ -4,6 +4,10 @@ import dayjs from "dayjs";
 import * as CalendarApi from "../http/CalendarApi";
 
 function savedEventsReducer(state, { type, payload }) {
+    if (state === undefined) {
+        state = [];
+    }
+
     switch (type) {
         case "push":
             return [...state, payload];
@@ -18,24 +22,10 @@ function savedEventsReducer(state, { type, payload }) {
     }
 }
 
-function fetchDataAndStoreInLocalStorage(id) {
-    CalendarApi.getAllCalendar.then(data => {
-            const item = data.filter(item => item.userId === id);
-            if (item) {
-                localStorage.setItem(`savedEvents`, JSON.stringify(item));
-            } else {
-                console.log(`No item found with id: ${id}`);
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
-
 function initEvents() {
-    return fetchDataAndStoreInLocalStorage(6);
+    const storageEvents = localStorage.getItem("savedEvents");
+    return storageEvents ? JSON.parse(storageEvents) : [];
 }
-
 // function initEvents() {
 //     const storageEvents = localStorage.getItem("savedEvents");
 //     const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
@@ -56,31 +46,49 @@ export default function ContextWrapper(props) {
     );
 
     const filteredEvents = useMemo(() => {
-        return savedEvents.filter((evt) =>
-            labels
-                .filter((lbl) => lbl.checked)
-                .map((lbl) => lbl.label)
-                .includes(evt.label)
-        );
+        console.log(savedEvents)
+
+        if (savedEvents && labels) {
+            return savedEvents.filter((evt) =>
+                labels
+                    .filter((lbl) => lbl.checked)
+                    .map((lbl) => lbl.label)
+                    .includes(evt.label)
+            );
+        } else {
+            return [];
+        }
     }, [savedEvents, labels]);
 
     useEffect(() => {
-        localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+        CalendarApi.getAllCalendar()
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('savedEvents', JSON.stringify(data));
+
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }, [savedEvents]);
 
     useEffect(() => {
         setLabels((prevLabels) => {
-            return [...new Set(savedEvents.map((evt) => evt.label))].map(
-                (label) => {
-                    const currentLabel = prevLabels.find(
-                        (lbl) => lbl.label === label
-                    );
-                    return {
-                        label,
-                        checked: currentLabel ? currentLabel.checked : true,
-                    };
-                }
-            );
+            if (savedEvents && prevLabels) {
+                return [...new Set(savedEvents.map((evt) => evt.label))].map(
+                    (label) => {
+                        const currentLabel = prevLabels.find(
+                            (lbl) => lbl.label === label
+                        );
+                        return {
+                            label,
+                            checked: currentLabel ? currentLabel.checked : true,
+                        };
+                    }
+                );
+            } else {
+                return [];
+            }
         });
     }, [savedEvents]);
 

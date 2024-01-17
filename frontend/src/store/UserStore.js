@@ -5,6 +5,7 @@ export default class  UserStore{
         this._isAuth = false
         this._isAdmin = false
         this._user = {}
+        this._token = ""
         makeAutoObservable(this)
     }
 
@@ -19,6 +20,9 @@ export default class  UserStore{
     setIsAdmin(bool) {
         this._isAdmin = bool
     }
+    setToken(token){
+        this._token = token
+    }
 
     get isAuth(){
         console.log("4" + this._isAuth)
@@ -30,5 +34,9 @@ export default class  UserStore{
     }
     get user(){
         return this._user
+    }
+
+    get getToken(){
+        return this._token
     }
 }

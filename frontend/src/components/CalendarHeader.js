@@ -4,9 +4,10 @@ import GlobalContext from "../context/GlobalContext";
 import leftL from "../assets/arrow-left-1-svgrepo-com.svg"
 import rightL from "../assets/arrow-right-1-svgrepo-com.svg"
 import "./CalendarHeader.css"
+import EventModal from "./EventModal";
 
 export default function CalendarHeader() {
-    const { monthIndex, setMonthIndex } = useContext(GlobalContext);
+    const { monthIndex, setMonthIndex,showEventModal } = useContext(GlobalContext);
     function handlePrevMonth() {
         setMonthIndex(monthIndex - 1);
     }
@@ -22,7 +23,9 @@ export default function CalendarHeader() {
         );
     }
     return (
+
         <header className="calendar_header">
+            {showEventModal && <EventModal />}
             <button
                 onClick={handleReset}
                 className="button_calendar_header"

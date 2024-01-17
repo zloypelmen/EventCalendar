@@ -7,6 +7,7 @@ import Month from "../components/Month";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "../components/EventModal";
 import "./Calendar.css"
+import ContextWrapper from "../context/ContextWrapper";
 
 const Calendar = () => {
     const [currenMonth, setCurrentMonth] = useState(getMonth());
@@ -18,15 +19,17 @@ const Calendar = () => {
 
     return (
         <React.Fragment>
-            {showEventModal && <EventModal />}
 
-            <div className="calendar_class">
-                <CalendarHeader />
-                <div className="calendar_header">
-                    <Sidebar />
-                    <Month month={currenMonth} />
+
+            <ContextWrapper>
+                <div className="calendar_class">
+                    <CalendarHeader />
+                    <div className="calendar_header">
+                        <Sidebar />
+                        <Month month={currenMonth} />
+                    </div>
                 </div>
-            </div>
+            </ContextWrapper>
         </React.Fragment>
     );
 };

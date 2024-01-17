@@ -13,9 +13,7 @@ root.render(
         user: new UserStore(),
         changes: new NewChangesStore()
     }}>
-        <ContextWrapper>
             <App />
-        </ContextWrapper>
 
     </Context.Provider>
 );
