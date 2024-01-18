@@ -10,9 +10,6 @@ export const getAllCalendar = async () => {
             ...item,
             day: Number(item.day),
         }));
-        console.log(response.data)
-
-        console.log("что-то" + response.data)
 
         return response.data;
     } catch (error) {
@@ -23,7 +20,7 @@ export const getAllCalendar = async () => {
 
 export  const addEvent = async (title, description, label, day) => {
     try {
-        const userId = userApi.getUserId()
+        const userId = localStorage.getItem('userId')
         const response = await $authHost.post('/api/event/add-ce', { title, description, label, day, userId });
         return response.data;
     } catch (error) {

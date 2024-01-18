@@ -54,6 +54,7 @@ export default function Day({ day, rowIdx }) {
                 }}
             >
                 {dayEvents.map((evt, idx) => (
+                    evt.userId == localStorage.getItem('userId') && (
                     <div
                         key={idx}
                         onClick={() => setSelectedEvent(evt)}
@@ -61,6 +62,7 @@ export default function Day({ day, rowIdx }) {
                     >
                         {evt.title}
                     </div>
+                    )
                 ))}
             </div>
         </div>

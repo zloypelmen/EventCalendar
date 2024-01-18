@@ -10,9 +10,7 @@ import {
 } from "./utils/consts";
 import Admin from "./pages/Admin";
 import Calendar from "./pages/Calendar";
-import Events from "./pages/Events";
 import About from "./pages/About";
-import Event from "./pages/Event";
 import Auth from "./pages/Auth.js";
 import ChangeLog from "./pages/ChangeLog"
 
@@ -24,14 +22,6 @@ export  const authRoutes = [
     {
         path: CALENDAR_ROUTE,
         Component: Calendar
-    },
-    {
-        path: EVENTS_ROUTE,
-        Component: Events
-    },
-    {
-        path: EVENT_ROUTE + '/:id',
-        Component: Event
     },
     {
         path: NEW_CHANGE_ROUTE,

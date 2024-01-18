@@ -8,6 +8,8 @@ import schedule from "../assets/schedule-svgrepo-com.svg"
 import segment from "../assets/segment-svgrepo-com.svg"
 import cancel2 from "../assets/cancel2-svgrepo-com.svg"
 import check from "../assets/check.svg"
+import * as CalendarApi from "../http/CalendarApi";
+import {addEvent} from "../http/CalendarApi";
 
 const labelsClasses = [
     "indigo",
@@ -49,8 +51,11 @@ export default function EventModal() {
         };
         if (selectedEvent) {
             dispatchCalEvent({ type: "update", payload: calendarEvent });
+            CalendarApi.deleteEvent(selectedEvent.id)
+            CalendarApi.addEvent(calendarEvent.title, calendarEvent.description, calendarEvent.label, calendarEvent.day)
         } else {
             dispatchCalEvent({ type: "push", payload: calendarEvent });
+            CalendarApi.addEvent(calendarEvent.title, calendarEvent.description, calendarEvent.label, calendarEvent.day)
         }
 
         setShowEventModal(false);
@@ -71,6 +76,7 @@ export default function EventModal() {
                                     payload: selectedEvent,
                                 });
                                 setShowEventModal(false);
+                                CalendarApi.deleteEvent(selectedEvent.id);
                             }}>
                                 <img src={deleteS} alt="delete"/>
                             </button>
