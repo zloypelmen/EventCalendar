@@ -34,6 +34,7 @@ const Auth = () => {
             console.log(data)
 
             user.setToken(data)
+            localStorage.setItem('isAuth', "1")
             localStorage.setItem('userId', await userApi.getUserId(email))
             user.setIsAuth(true)
 
@@ -41,7 +42,6 @@ const Auth = () => {
         } catch (e) {
             alert(e.response.data.message)
         }
-
     }
 
     return (

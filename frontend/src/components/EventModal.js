@@ -57,7 +57,8 @@ export default function EventModal() {
             dispatchCalEvent({ type: "push", payload: calendarEvent });
             CalendarApi.addEvent(calendarEvent.title, calendarEvent.description, calendarEvent.label, calendarEvent.day)
         }
-
+        window.location.reload()
+        window.location.reload()
         setShowEventModal(false);
     }
     return (
@@ -144,6 +145,7 @@ export default function EventModal() {
                     <button
                         type="submit"
                         onClick={handleSubmit}
+
                     >
                         Save
                     </button>

@@ -19,17 +19,14 @@ const Calendar = () => {
 
     return (
         <React.Fragment>
-
-
-            <ContextWrapper>
+                {showEventModal && <EventModal />}
                 <div className="calendar_class">
                     <CalendarHeader />
-                    <div className="calendar_header">
+                    <div className="calendar_header1">
                         <Sidebar />
                         <Month month={currenMonth} />
                     </div>
                 </div>
-            </ContextWrapper>
         </React.Fragment>
     );
 };

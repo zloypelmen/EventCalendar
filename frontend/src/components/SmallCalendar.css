@@ -14,7 +14,7 @@
 .p_small_calendar{
     font-weight: 700;
     color: #6B7280;
-    font-size: 1.3vw;
+    font-size: 1.25rem;
 }
 
 .mini_small_calendar{
@@ -61,7 +61,7 @@
     }
 
     .p_small_calendar {
-        font-size: 15px;
+        font-size: 1.25rem;
     }
 
 }

@@ -17,6 +17,7 @@ const NavBar = observer(() => {
 
     const logOut = () => {
         user.setUser({})
+        localStorage.setItem('isAuth', "0")
         user.setIsAuth(false)
         user.setIsAdmin(false)
         navigate(LOGIN_ROUTE)
@@ -31,7 +32,7 @@ const NavBar = observer(() => {
 
             <NavigationNav/>
 
-            {user.isAuth ?
+            {localStorage.getItem("isAuth") == 1 ?
 
                 <Nav className="nav-buttons" style={{color: 'white'}}>
 

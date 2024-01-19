@@ -9,3 +9,10 @@
     border-style: solid;
     border-color: #e5e7eb;
 }
+
+@media (max-width: 1000px) {
+    .month{
+        width: 100%;
+    }
+
+}

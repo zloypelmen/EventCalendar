@@ -25,7 +25,7 @@ export default function CalendarHeader() {
     return (
 
         <header className="calendar_header">
-            {showEventModal && <EventModal />}
+
             <button
                 onClick={handleReset}
                 className="button_calendar_header"

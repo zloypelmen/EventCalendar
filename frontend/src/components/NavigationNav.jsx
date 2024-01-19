@@ -11,7 +11,7 @@ const NavigationNav = observer(() => {
 
     return (
 
-        (user.isAuth ?
+        (localStorage.getItem("isAuth") == 1 ?
                 <Nav className="me-auto" >
                     <Nav.Link className="button-text" onClick={() => navigate(ABOUT_ROUTE)} >
                         Главная
@@ -21,9 +21,6 @@ const NavigationNav = observer(() => {
                     </Nav.Link>
                     <Nav.Link className="button-text" onClick={() => navigate(CALENDAR_ROUTE)}>
                         Календарь
-                    </Nav.Link>
-                    <Nav.Link className="button-text" onClick={() => navigate(EVENTS_ROUTE)}>
-                        Мероприятия
                     </Nav.Link>
 
                 </Nav>
