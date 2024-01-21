@@ -1,9 +1,13 @@
 import React from 'react';
 import MainSlider from "../components/MainSlider";
+import "./About.css"
 
 const About = () => {
     return (
-        <MainSlider/>
+        <div className={"about_page"}>
+            <MainSlider/>
+        </div>
+
     );
 };
 

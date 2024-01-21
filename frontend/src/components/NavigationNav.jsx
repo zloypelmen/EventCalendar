@@ -22,7 +22,6 @@ const NavigationNav = observer(() => {
                     <Nav.Link className="button-text" onClick={() => navigate(CALENDAR_ROUTE)}>
                         Календарь
                     </Nav.Link>
-
                 </Nav>
                 :
                 <Nav className="me-auto" >
@@ -30,6 +29,8 @@ const NavigationNav = observer(() => {
                         Главная
                     </Nav.Link>
                 </Nav>
+
+
         )
     );
 });

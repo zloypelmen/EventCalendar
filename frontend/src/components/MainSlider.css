@@ -1,3 +1,8 @@
+.crusel{
+    display: flex;
+    align-items: start;
+}
+
 .helf3{
     color: #05073a;
     font-size: 3vw;
@@ -9,16 +14,15 @@
 }
 
 .slider_container {
-    height: 90vh; /* 100% высоты экрана */
+    height: 90vh;
     overflow: hidden;
 }
 
 .slider_img {
-    width: 100%; /* Занимает 100% ширины родительского контейнера */
-    height: auto; /* Автоматическое вычисление высоты, чтобы поддерживать пропорции */
-    position: absolute; /* Абсолютное позиционирование внутри родительского контейнера */
-    top: 50%; /* Размещаем изображение по вертикали по центру блока-родителя */
-    left: 50%; /* Размещаем изображение по горизонтали по центру блока-родителя */
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 

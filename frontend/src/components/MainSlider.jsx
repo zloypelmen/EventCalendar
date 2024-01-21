@@ -8,7 +8,7 @@ import "./MainSlider.css"
 const MainSlider = () => {
 
     return (
-        <Carousel>
+        <Carousel className={"crusel"}>
             <Carousel.Item className={" slider_container"}>
                 <img className={"slider_img"} src={main} alt="main"/>
                 <Carousel.Caption>

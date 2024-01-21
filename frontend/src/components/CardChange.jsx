@@ -26,7 +26,6 @@ const CardChange = () => {
                     </Card.Body>
                 </Card>
             )}
-
         </ListGroup>
 
     );
