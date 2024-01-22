@@ -1,9 +1,13 @@
 import React from 'react';
+import ChangeModal from "../components/ChangeModal";
 import AccordionUsage from "../components/ChangeChangeLogs";
 
 const Admin = () => {
     return (
-        <AccordionUsage/>
+        <div>
+            <ChangeModal/>
+            <AccordionUsage/>
+        </div>
     );
 };
 
