@@ -5,12 +5,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
-import CardChange from "./CardChange";
 import {useContext} from "react";
 import {Context} from "../index";
-import Card from "react-bootstrap/Card";
 import {ListGroup} from "react-bootstrap";
-import {deleteChange} from "../http/ChangesApi";
 import * as ChangesApi from "../http/ChangesApi";
 
 const AccordionUsage = () => {

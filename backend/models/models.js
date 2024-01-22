@@ -16,6 +16,12 @@ const Event = sequelize.define('event', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
+const Label = sequelize.define('label', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    color: { type: DataTypes.STRING, allowNull: false, defaultValue: "indigo" },
+});
+
+
 const ChangeLog = sequelize.define('changeLog', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     title: { type: DataTypes.STRING, allowNull: true },
