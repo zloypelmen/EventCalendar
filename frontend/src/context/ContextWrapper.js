@@ -61,10 +61,13 @@ export default function ContextWrapper(props) {
     }, [savedEvents, labels]);
 
     useEffect(() => {
+        const storedUserId = localStorage.getItem('userId');
+
         CalendarApi.getAllCalendar()
             .then(data => {
                 console.log(data)
-                localStorage.setItem('savedEvents', JSON.stringify(data));
+                const filteredEvents = data.filter(event => event.userId == storedUserId);
+                localStorage.setItem('savedEvents', JSON.stringify(filteredEvents));
 
             })
             .catch((error) => {

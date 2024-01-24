@@ -8,6 +8,10 @@
     border-color: #e5e7eb;
 }
 
+.closest-event{
+    margin-left: auto;
+}
+
 .button_calendar_header{
     padding: 0.5rem 1rem;
     margin-right: 1.25rem;
