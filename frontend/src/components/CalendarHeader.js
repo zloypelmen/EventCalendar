@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import GlobalContext from "../context/GlobalContext";
 import leftL from "../assets/arrow-left-1-svgrepo-com.svg"
 import rightL from "../assets/arrow-right-1-svgrepo-com.svg"
@@ -32,14 +32,18 @@ export default function CalendarHeader() {
         let closestEvent = null;
         let minTimeDifference =   Number.POSITIVE_INFINITY;
 
-        for (const event of events) {
-            const timeDifference = event.day - currentTimestamp;
+            for (const event of events) {
 
-            if (timeDifference > 0 && timeDifference < minTimeDifference) {
-                minTimeDifference = timeDifference;
-                closestEvent = event;
+                const timeDifference = event.day - currentTimestamp;
+
+                if (timeDifference > 0 && timeDifference < minTimeDifference) {
+                    minTimeDifference = timeDifference;
+                    closestEvent = event;
+                }
             }
-        }
+
+        localStorage.setItem('closestEvent', JSON.stringify(closestEvent));
+
         return closestEvent;
     }
 

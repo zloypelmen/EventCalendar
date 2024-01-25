@@ -5,9 +5,8 @@ import Button from "react-bootstrap/Button";
 import {useContext} from "react";
 import {Context} from "../index";
 import {useNavigate} from "react-router-dom";
-import {ABOUT_ROUTE, ADMIN_ROUTE, CALENDAR_ROUTE, EVENTS_ROUTE, LOGIN_ROUTE, NEW_CHANGE_ROUTE} from "../utils/consts";
+import { ADMIN_ROUTE, LOGIN_ROUTE,} from "../utils/consts";
 import {observer} from "mobx-react-lite";
-import MainSlider from "./MainSlider";
 import NavigationNav from "./NavigationNav";
 
 const NavBar = observer(() => {
@@ -20,6 +19,7 @@ const NavBar = observer(() => {
         localStorage.setItem('isAuth', "0")
         user.setIsAuth(false)
         user.setIsAdmin(false)
+        localStorage.clear();
         navigate(LOGIN_ROUTE)
     }
 

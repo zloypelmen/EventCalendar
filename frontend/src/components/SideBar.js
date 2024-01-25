@@ -3,7 +3,7 @@ import CreateEventButton from "./CreateEventButton";
 import SmallCalendar from "./SmallCalendar";
 import Labels from "./Labels";
 import "./SideBar.css"
-export default function Sidebar() {
+export default function SideBar() {
     return (
         <aside className="side_bar">
             <CreateEventButton />

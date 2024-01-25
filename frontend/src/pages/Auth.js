@@ -3,10 +3,10 @@ import {Container, Form} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import {BrowserRouter, NavLink, useLocation} from "react-router-dom";
-import {CALENDAR_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
+import { NavLink, useLocation} from "react-router-dom";
+import {ABOUT_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import {Context} from "../index";
-import {getUserId, login, registration} from "../http/userApi";
+import { login, registration} from "../http/userApi";
 import { useNavigate } from "react-router-dom";
 import * as userApi from "../http/userApi";
 
@@ -34,11 +34,14 @@ const Auth = () => {
             console.log(data)
 
             user.setToken(data)
+            localStorage.setItem('closestEvent', '{"title":"Доборо пожаловать","description":"Добавь свую первую запись на странице Календарь","label":"green","day":"1706389200000","id":48,"createdAt":"2024-01-25T11:07:18.979Z","updatedAt":"2024-01-25T11:07:18.979Z","userId":4}')
+            localStorage.setItem('savedEvents', "")
             localStorage.setItem('isAuth', "1")
             localStorage.setItem('userId', await userApi.getUserId(email))
             user.setIsAuth(true)
 
-            navigate(CALENDAR_ROUTE)
+            navigate(ABOUT_ROUTE)
+            window.location.reload();
         } catch (e) {
             alert(e.response.data.message)
         }
