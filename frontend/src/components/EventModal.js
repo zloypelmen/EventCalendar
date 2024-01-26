@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import GlobalContext from "../context/GlobalContext";
 import "./EventModal.css"
 import bookmarkBorder from "../assets/bookmark_border.svg"
@@ -9,7 +9,6 @@ import segment from "../assets/segment-svgrepo-com.svg"
 import cancel2 from "../assets/cancel2-svgrepo-com.svg"
 import check from "../assets/check.svg"
 import * as CalendarApi from "../http/CalendarApi";
-import {addEvent} from "../http/CalendarApi";
 
 const labelsClasses = [
     "indigo",
@@ -34,38 +33,75 @@ export default function EventModal() {
     const [description, setDescription] = useState(
         selectedEvent ? selectedEvent.description : ""
     );
+
+    const [quantity, setQuantity] = useState(
+        // Retrieve the value from local storage or set a default value
+        localStorage.getItem("quantity") || ""
+    );
+
+    const [period, setPeriod] = useState(
+        // Retrieve the value from local storage or set a default value
+        localStorage.getItem("period") || ""
+    );
+
     const [selectedLabel, setSelectedLabel] = useState(
         selectedEvent
             ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
             : labelsClasses[0]
     );
 
+    useEffect(() => {
+        localStorage.setItem("quantity", quantity);
+    }, [quantity]);
+
+    useEffect(() => {
+        localStorage.setItem("period", period);
+    }, [period]);
+
     function handleSubmit(e) {
         e.preventDefault();
+
         const calendarEvent = {
             title,
             description,
             label: selectedLabel,
             day: daySelected.valueOf(),
-            id: selectedEvent ? selectedEvent.id : Date.now(),
         };
         if (selectedEvent) {
-            dispatchCalEvent({ type: "update", payload: calendarEvent });
+            dispatchCalEvent({type: "update", payload: calendarEvent});
             CalendarApi.deleteEvent(selectedEvent.id)
             CalendarApi.addEvent(calendarEvent.title, calendarEvent.description, calendarEvent.label, calendarEvent.day)
         } else {
-            dispatchCalEvent({ type: "push", payload: calendarEvent });
+            dispatchCalEvent({type: "push", payload: calendarEvent});
             CalendarApi.addEvent(calendarEvent.title, calendarEvent.description, calendarEvent.label, calendarEvent.day)
         }
-        window.location.reload()
-        window.location.reload()
+
+
+        for (let i = 1; i < quantity; i++) {
+            const nextDay = calendarEvent.day + i * period * 86400000
+            const recurringEvent = {
+                title,
+                description,
+                label: selectedLabel,
+                day: nextDay.valueOf(),
+            };
+
+            dispatchCalEvent({ type: "push", payload: recurringEvent });
+            CalendarApi.addEvent(recurringEvent.title, recurringEvent.description, recurringEvent.label, recurringEvent.day);
+        }
+
+        localStorage.removeItem('period');
+        localStorage.removeItem('quantity');
+
+        window.location.reload();
         setShowEventModal(false);
     }
+
     return (
         <div className="event_modal">
             <form className="form_event_modal">
                 <header>
-                    <button className={"arrow2"} >
+                    <button className={"arrow2"}>
                         <img src={dragHandle} alt={"drag_handle"} className="drag_handle"/>
                     </button>
 
@@ -102,12 +138,14 @@ export default function EventModal() {
                             className="title_input"
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <div className={"arrow3"} >
+
+                        <div className={"arrow3"}>
                             <img src={schedule} alt={"drag_handle"} className="drag_handle mb-2"/>
                         </div>
 
                         <p>{daySelected.format("dddd, MMMM DD")}</p>
-                        <div className={"arrow3"} >
+
+                        <div className={"arrow3"}>
                             <img src={segment} alt={"drag_handle"} className="drag_handle"/>
                         </div>
                         <input
@@ -119,7 +157,35 @@ export default function EventModal() {
                             className="description_input"
                             onChange={(e) => setDescription(e.target.value)}
                         />
-                        <div className={"arrow3"} >
+
+                        <div className={"arrow3"}>
+                            <img src={segment} alt={"drag_handle"} className="drag_handle"/>
+                        </div>
+                        <input
+                            type="number"
+                            name="quantity"
+                            placeholder="Add a quantity"
+                            value={quantity}
+                            required
+                            className="description_input"
+                            onChange={(e) => setQuantity(e.target.value)}
+                        />
+
+                        <div className={"arrow3"}>
+                            <img src={segment} alt={"drag_handle"} className="drag_handle"/>
+                        </div>
+
+                        <input
+                            type="number"
+                            name="period"
+                            placeholder="Add a period"
+                            value={period}
+                            required
+                            className="description_input"
+                            onChange={(e) => setPeriod(e.target.value)}
+                        />
+
+                        <div className={"arrow3"}>
                             <img src={bookmarkBorder} alt={"drag_handle"} className="drag_handle mt-3"/>
                         </div>
 
@@ -131,7 +197,7 @@ export default function EventModal() {
                                     className={`bg-${lblClass} selected_label`}
                                 >
                                     {selectedLabel === lblClass && (
-                                        <div className={"check "} >
+                                        <div className={"check "}>
                                             <img src={check} alt={"drag_handle"} className="drag_handle1"/>
                                         </div>
                                     )}
@@ -145,7 +211,6 @@ export default function EventModal() {
                     <button
                         type="submit"
                         onClick={handleSubmit}
-
                     >
                         Save
                     </button>
