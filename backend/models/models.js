@@ -28,12 +28,14 @@ const ChangeLog = sequelize.define('changeLog', {
     description: { type: DataTypes.TEXT, allowNull: true },
 });
 
-const Action = sequelize.define('changeLog', {
+const Action = sequelize.define('action', {
     title: {type: DataTypes.STRING, unique: false, allowNull: false},
     description: {type: DataTypes.STRING, unique: false, allowNull: true},
     label: {type: DataTypes.STRING, allowNull: false, defaultValue: "indigo"},
     day: {type: DataTypes.BIGINT, defaultValue: 0},
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    author: { type: DataTypes.STRING, allowNull: true },
+    location: { type: DataTypes.STRING, allowNull: true },
 });
 
 const UserAction = sequelize.define('user_action',{

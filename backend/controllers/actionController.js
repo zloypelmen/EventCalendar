@@ -3,12 +3,15 @@ const { Action } = require('../models/models');
 class ActionController {
     async add(req, res, next) {
         try {
-            const { title, description, label, day } = req.body;
+            const { title, description, label, day, location, author, eventDate } = req.body;
             const newAction = await Action.create({
                 title,
                 description,
                 label,
                 day,
+                location,
+                author,
+                eventDate,
             });
             res.status(201).json(newAction);
         } catch (error) {

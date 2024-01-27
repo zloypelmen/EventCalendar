@@ -1,15 +1,8 @@
 import {$authHost, $host} from "./index";
-import {getUserId} from "./userApi";
-import * as userApi from "./userApi";
 
 export const getAllCalendar = async () => {
     try {
         const response = await $host.get('/api/event/get-all');
-
-        const modifiedData = response.data.map(item => ({
-            ...item,
-            day: Number(item.day),
-        }));
 
         return response.data;
     } catch (error) {

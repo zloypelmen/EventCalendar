@@ -1,12 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Nav} from "react-bootstrap";
-import {ABOUT_ROUTE, CALENDAR_ROUTE, EVENTS_ROUTE, NEW_CHANGE_ROUTE} from "../utils/consts";
+import {ABOUT_ROUTE, CALENDAR_ROUTE, ACTIONS_ROUTE, NEW_CHANGE_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
-import {Context} from "../index";
 import {useNavigate} from "react-router-dom";
 
 const NavigationNav = observer(() => {
-    const {user} = useContext(Context)
     const navigate = useNavigate()
 
     return (
@@ -21,6 +19,9 @@ const NavigationNav = observer(() => {
                     </Nav.Link>
                     <Nav.Link className="button-text" onClick={() => navigate(CALENDAR_ROUTE)}>
                         Календарь
+                    </Nav.Link>
+                    <Nav.Link className="button-text" onClick={() => navigate(ACTIONS_ROUTE)}>
+                        Мероприятия
                     </Nav.Link>
                 </Nav>
                 :
