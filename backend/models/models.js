@@ -28,11 +28,29 @@ const ChangeLog = sequelize.define('changeLog', {
     description: { type: DataTypes.TEXT, allowNull: true },
 });
 
+const Action = sequelize.define('changeLog', {
+    title: {type: DataTypes.STRING, unique: false, allowNull: false},
+    description: {type: DataTypes.STRING, unique: false, allowNull: true},
+    label: {type: DataTypes.STRING, allowNull: false, defaultValue: "indigo"},
+    day: {type: DataTypes.BIGINT, defaultValue: 0},
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+});
+
+const UserAction = sequelize.define('user_action',{
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+})
+
 User.hasMany(Event)
 Event.belongsTo(User)
+
+User.belongsToMany(Action, {through: UserAction})
+Action.belongsToMany(User, {through: UserAction})
 
 module.exports = {
     User,
     Event,
     ChangeLog,
+    Action,
+    UserAction,
+    Label,
 }
