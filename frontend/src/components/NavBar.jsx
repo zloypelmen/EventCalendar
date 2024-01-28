@@ -36,7 +36,7 @@ const NavBar = observer(() => {
 
                 <Nav className="nav-buttons" style={{color: 'white'}}>
 
-                    {user.isAdmin ?
+                    {localStorage.getItem("isAdmin") == 1 ?
                         <Button
                             variant={"outline-danger"}
                             className={"admin_button"}

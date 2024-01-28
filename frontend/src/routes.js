@@ -7,7 +7,8 @@ import {
     ACTION_ROUTE,
     LOGIN_ROUTE,
     REGISTRATION_ROUTE,
-    NEW_CHANGE_ROUTE
+    NEW_CHANGE_ROUTE,
+    ADMIN_CHANGES_ROUTE,
 } from "./utils/consts";
 import Admin from "./pages/Admin";
 import Calendar from "./pages/Calendar";
@@ -17,11 +18,20 @@ import ChangeLog from "./pages/ChangeLog";
 import Actions from "./pages/Actions";
 import Action from "./pages/Action";
 import AdminActions from "./pages/AdminActions";
+import AdminChanges from "./pages/AdminChanges";
 
 export  const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: Admin
+    },
+    {
+        path:ADMIN_ACTIONS_ROUTE,
+        Component: AdminActions
+    },
+    {
+        path: ADMIN_CHANGES_ROUTE,
+        Component: AdminChanges
     },
     {
         path: CALENDAR_ROUTE,

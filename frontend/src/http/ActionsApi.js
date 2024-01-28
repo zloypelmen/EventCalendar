@@ -11,9 +11,9 @@ export const getAllActions = async () => {
     }
 };
 
-export  const addAction = async ( title, description, label, day, location, author, eventDate) => {
+export  const addAction = async ( title, description, day, location, author) => {
     try {
-        const response = await $authHost.post('/api/action/add', {  title, description, label, day, location, author, eventDate });
+        const response = await $authHost.post('/api/action/add', {  title, description, day, location, author });
         return response.data;
     } catch (error) {
         console.error(error);

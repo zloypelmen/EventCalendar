@@ -5,10 +5,11 @@
     margin-top: 20px;
 }
 
-.description_inp{
-    width: 20vw;
+.change_modal .inp{
+    margin-top: 10px;
+    width: 40vw;
 }
 
-.title_inp{
-    width: 20vw;
+.change_modal .but{
+    margin-top: 10px;
 }

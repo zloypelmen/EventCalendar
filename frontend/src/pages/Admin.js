@@ -1,12 +1,12 @@
 import React from 'react';
-import ChangeModal from "../components/ChangeModal";
-import AccordionUsage from "../components/ChangeChangeLogs";
+import AdminNavBar from "../components/AdminNavBar";
 
 const Admin = () => {
+
     return (
         <div>
-            <ChangeModal/>
-            <AccordionUsage/>
+            <AdminNavBar/>
+
         </div>
     );
 };

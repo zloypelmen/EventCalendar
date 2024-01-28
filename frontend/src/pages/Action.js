@@ -7,8 +7,9 @@ import actionImg from "../assets/action.svg"
 import Button from "react-bootstrap/Button";
 import {ACTIONS_ROUTE, CALENDAR_ROUTE} from "../utils/consts";
 import * as CalendarApi from "../http/CalendarApi";
+import {observer} from "mobx-react-lite";
 
-const Action = () => {
+const Action = observer(() => {
     const [action, setAction] = useState({info: []})
     const {id} = useParams()
     const navigate = useNavigate()
@@ -50,6 +51,6 @@ const Action = () => {
             </Card>
         </div>
     );
-};
+});
 
 export default Action;

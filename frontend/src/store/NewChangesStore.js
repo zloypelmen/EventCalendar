@@ -4,6 +4,7 @@ export default class NewChangesStore {
         this._changes = [
             {id: 100500, title:"Записей не обнаружено!", description: "Попробуйте перезайти на страницу!"}
         ]
+        makeAutoObservable(this)
     }
     setChanges(changes) {
         return this._changes = changes

@@ -8,6 +8,21 @@ const ChangeModal = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
+    const handleAddChange = async () => {
+        try {
+
+            if (!title || !description) {
+                throw new Error('Заполните все поля');
+            }
+
+            await ChangesApi.addNewChange(title, description);
+
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     return (
         <div className={"change_modal"}>
             <TextField
@@ -15,6 +30,7 @@ const ChangeModal = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 label="Title"
                 id="title-input"
+                className={"title_inp"}
             />
             <TextField
                 value={description}
@@ -22,13 +38,12 @@ const ChangeModal = () => {
                 label="Description"
                 id="description-input"
                 margin="normal"
+                className={"description_inp"}
             />
             <Button
-                onClick={() => {
-                    ChangesApi.addNewChange(title, description);
-                }}
+                onClick={handleAddChange}
                 variant="contained"
-                color="primary"  // Используйте "primary" вместо "success"
+                color="primary"
             >
                 ADD
             </Button>

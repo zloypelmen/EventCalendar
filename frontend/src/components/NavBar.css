@@ -8,8 +8,8 @@
     border-color: #e5e7eb;
 }
 header img{
-    width: 2vw;
-    height: 2vw;
+    width: 30px;
+    height: 30px;
     display: block;
     vertical-align: middle;
 }
@@ -18,7 +18,7 @@ header img{
 .curic {
     color: #05073a;
     margin: 0.9vh 2vw 0.9vh 1vw;
-    font-size: 1vw;
+    font-size: 15px;
     display: flex;
     align-items: center;
     vertical-align: middle;
@@ -29,45 +29,20 @@ header img{
 }
 
 .admin_button{
-    --bs-btn-padding-y: 0.5vw;
-    --bs-btn-font-size: 1vw;
+    --bs-btn-padding-y: 7px;
+    --bs-btn-font-size: 15px;
 }
 
 .button-text{
     color: #0a0d6e;
-    font-size: 1vw;
+    font-size: 15px;
     display: flex;
     align-items: center;
     vertical-align: middle;
 }
 
 .admin_button{
-    margin-right: 2vw;
+    margin-right: 30px;
 }
 
-@media (max-width: 1000px) {
-    header img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .admin_button{
-        --bs-btn-padding-y: 0.5vw;
-        --bs-btn-font-size: 10px;
-    }
-
-    .curic {
-        margin: 10px 20px 10px 10px;
-        font-size: 10px;
-    }
-
-    .button-text{
-        color: #0a0d6e;
-        font-size: 10px;
-        display: flex;
-        align-items: center;
-        vertical-align: middle;
-    }
-
-}
 

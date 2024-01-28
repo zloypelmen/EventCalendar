@@ -29,6 +29,7 @@ const Auth = () => {
             }
             if (email === "admin@mail.ru"){
                 user.setIsAdmin(true)
+                localStorage.setItem('isAdmin', "1")
             }
             user.setUser(user)
             console.log(data)
