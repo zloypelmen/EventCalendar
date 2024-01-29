@@ -19,10 +19,11 @@ const ActionModal = () => {
 
             await ActionsApi.addAction(title, description, day, location, author);
 
-
         } catch (error) {
             console.log(error.message);
         }
+
+        window.location.reload();
     };
 
     return (

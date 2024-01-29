@@ -21,6 +21,8 @@ const ChangeModal = () => {
         } catch (error) {
             console.log(error.message);
         }
+
+        window.location.reload();
     };
 
     return (
