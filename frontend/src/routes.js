@@ -8,7 +8,7 @@ import {
     LOGIN_ROUTE,
     REGISTRATION_ROUTE,
     NEW_CHANGE_ROUTE,
-    ADMIN_CHANGES_ROUTE,
+    ADMIN_CHANGES_ROUTE, UPCOMING_EVENTS_ROUTE,
 } from "./utils/consts";
 import Admin from "./pages/Admin";
 import Calendar from "./pages/Calendar";
@@ -19,6 +19,8 @@ import Actions from "./pages/Actions";
 import Action from "./pages/Action";
 import AdminActions from "./pages/AdminActions";
 import AdminChanges from "./pages/AdminChanges";
+import UpcomingEvents from "./pages/UpcomingEvents";
+
 
 export  const authRoutes = [
     {
@@ -52,6 +54,10 @@ export  const authRoutes = [
     {
         path: ADMIN_ACTIONS_ROUTE,
         Component: AdminActions
+    },
+    {
+        path: UPCOMING_EVENTS_ROUTE,
+        Component: UpcomingEvents
     },
 
 ]

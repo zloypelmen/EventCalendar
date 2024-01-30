@@ -1,6 +1,6 @@
 import React from 'react';
 import {Nav} from "react-bootstrap";
-import {ABOUT_ROUTE, CALENDAR_ROUTE, ACTIONS_ROUTE, NEW_CHANGE_ROUTE} from "../utils/consts";
+import {ABOUT_ROUTE, CALENDAR_ROUTE, ACTIONS_ROUTE, NEW_CHANGE_ROUTE, UPCOMING_EVENTS_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
 
@@ -23,6 +23,10 @@ const NavigationNav = observer(() => {
                     <Nav.Link className="button-text" onClick={() => navigate(ACTIONS_ROUTE)}>
                         Мероприятия
                     </Nav.Link>
+                    <Nav.Link className="button-text" onClick={() => navigate(UPCOMING_EVENTS_ROUTE)}>
+                        Предстоящие события
+                    </Nav.Link>
+
                 </Nav>
                 :
                 <Nav className="me-auto" >
